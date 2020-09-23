@@ -1,5 +1,15 @@
-{% block body %}
-    <div>
-        <img src="/media/{{ wordcloud_name }}_image.png">
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css'%}"/>
+<head>
+    <meta charset="UTF-8">
+    <title>Whatsapp WordCloud</title>
+</head>
+<body>
+    <div class="center margin-top">
+        <a href="/media/{{ wordcloud_name }}_image.png">
+            <img src="/media/{{ wordcloud_name }}_image.png" class='center-image'>
+        </a>
     </div>
-{% endblock body %}
+</body>

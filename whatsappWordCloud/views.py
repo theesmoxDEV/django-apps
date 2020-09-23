@@ -9,20 +9,18 @@ from .models import ChatFile
 # Create your views here.
 
 def index(request):
-    return render(request, 'base.html')
-
-
-def model_form_upload(request):
-    if request.method == 'POST':
-        form = DocumentForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('create_cloud')
-    else:
-        form = DocumentForm()
-    return render(request, 'model_form_upload.html', {
-        'form': form
-    })
+    def model_form_upload(request):
+        if request.method == 'POST':
+            form = DocumentForm(request.POST, request.FILES)
+            if form.is_valid():
+                form.save()
+                return redirect('create_cloud')
+        else:
+            form = DocumentForm()
+        return render(request, 'index.html', {
+            'form': form
+        })
+    return model_form_upload(request)
 
 
 def create_cloud(request):
@@ -30,3 +28,6 @@ def create_cloud(request):
     doc.create_cloud()
     wordcloud_name = doc.wordcloud_name
     return render(request, 'cloud.html', {'wordcloud_name': wordcloud_name})
+
+def how_to_export(request):
+    return render(request, 'how_to_export.html')

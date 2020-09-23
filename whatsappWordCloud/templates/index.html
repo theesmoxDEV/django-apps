@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css'%}"/>
+<head>
+    <meta charset="UTF-8">
+    <title>Whatsapp WordCloud</title>
+</head>
+<body>
+    <div class="center text-center margin-top">
+        <h1>Whatsapp WordCloud</h1>
+        <p>Welcome to WhatsappCloud! Here you can upload your whatsapp chats and see how your group talk or how your friend is!</p>
+        <div class="center text-left margin-top">
+            {% include 'model_form_upload.html' %}
+        </div>
+        <p class="margin-top"><a href="{% url 'how_to_export' %}">How to export a whatsapp chat?</a></p>
+    </div>
+</body>
+</html>
